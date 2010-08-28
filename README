@@ -58,6 +58,8 @@ vote_from_user(user, kind=nil) -- true = user has voted aye, false = user has
   voted nay, nil = user has not voted 
 user_voted?(user, kind=nil) -- has the user voted?
 
+toggle_user_vote(user, kind=nil) -- true = toggle user vote to true, false = toggled user vote to false
+
 Class Methods:
 
 sort_by_votes(kind=nil) -- returns collection sorted by votes

@@ -99,6 +99,16 @@ module HangingChad
       [true, false].include?(vote_from_user(user, kind))
     end
 
+    def toggle_user_vote(user, kind=nil)
+      if vote_from_user(user, kind)
+        record_vote(user, false, kind)
+        false
+      else
+        record_vote(user, true, kind)
+        true
+      end
+    end
+
 
     def aye_votes(kind=nil)
       get_vote_total(:ayes, kind)

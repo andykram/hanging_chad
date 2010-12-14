@@ -22,7 +22,7 @@ module HangingChad
         named_scope(:sort_by_votes, lambda do |kind|
           quoted_kind = ActiveRecord::Base.connection.quote(kind.to_s)
           {:joins => "LEFT OUTER JOIN vote_totals ON vote_totals.voteable_type = '#{self}' AND vote_totals.voteable_id = #{table_name}.id AND vote_totals.kind = #{quoted_kind}",
-            :order => "percent_ayes DESC"}
+            :order => "percent_ayes DESC, ayes DESC"}
         end)
 
         named_scope(:include_votes_by_user, lambda do |user|
